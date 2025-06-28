@@ -17,12 +17,16 @@ app.get('/', (req, res) => {
 
 // MongoDB connection
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://i222617:o7J9tY8Oc3VJIp9r@cluster0.gzgvcne.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const MONGO_URI = process.env.MONGO_URI || 'your-mongo-uri-here';
 
-// Connect to MongoDB
+// Connect to MongoDB and start server
 mongoose.connect(MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB Atlas');
+
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
   })
   .catch((err) => {
     console.error('MongoDB connection error:', err);
@@ -31,12 +35,4 @@ mongoose.connect(MONGO_URI)
 // Routes
 app.use('/api', require('../routes/index.js'));
 
-// For local development
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
-
-// For Vercel serverless
 module.exports = app;
