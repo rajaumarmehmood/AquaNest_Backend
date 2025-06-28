@@ -7,7 +7,21 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+// CORS configuration
+const corsOptions = {
+  origin: [
+    'http://localhost:3000', // Local development
+    'http://localhost:3001', // Alternative local port
+    'https://aqua-nest-frontend-hjy9.vercel.app', // Production frontend
+    'https://aquanest-frontend-git-main-rajaumarmehmood.vercel.app', // Vercel preview
+    'https://aquanest-frontend-git-develop-rajaumarmehmood.vercel.app' // Vercel develop branch
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token']
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Basic root route
