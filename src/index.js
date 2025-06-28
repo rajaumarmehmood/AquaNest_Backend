@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const allowedOrigins = ['https://aqua-nest-frontend-hjy9.vercel.app/'];
+const allowedOrigins = ['https://aqua-nest-frontend-hjy9.vercel.app'];
 
 app.use(cors({
   origin: allowedOrigins,
