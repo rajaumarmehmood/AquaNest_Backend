@@ -6,8 +6,12 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
+const allowedOrigins = ['https://aqua-nest-frontend-hjy9.vercel.app/'];
 
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 app.use(express.json());
 
 // Basic root route
