@@ -12,7 +12,7 @@ const corsOptions = {
   origin: [
     'http://localhost:3000', // Local development
     'http://localhost:3001', // Alternative local port
-    'https://aqua-nest-frontend-hjy9.vercel.app', // Production frontend
+    'https://aqua-nest-frontend-latest.vercel.app', // Production frontend
     'https://aquanest-frontend-git-main-rajaumarmehmood.vercel.app', // Vercel preview
     'https://aquanest-frontend-git-develop-rajaumarmehmood.vercel.app' // Vercel develop branch
   ],
